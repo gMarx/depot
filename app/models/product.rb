@@ -22,4 +22,8 @@ class Product < ActiveRecord::Base
   # validates title has at least 4 characters
   validates :title, length: {minimum: 4}
 
+  def self.latest
+    Product.order(:updated_at).last
+  end
+
 end
