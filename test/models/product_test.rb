@@ -18,10 +18,10 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   # test price greater than 1 cent
-  test "product price must be positive" do
-    product = Product.new(title:    "Osprey Backpack",
-                          decription: "75 liters, blue, and awesome",
-                        image_url:  "tent.jpg")
+  test 'product price must be positive' do
+    product = Product.new(title:    'Osprey Backpack',
+                          description: '75 liters, blue, and awesome',
+                        image_url:  'tent.jpg')
     product.price = -1
     assert product.invalid?
     assert_equal ['must be greater than or equal to 0.01'],
@@ -39,13 +39,13 @@ class ProductTest < ActiveSupport::TestCase
 #   test image_url ends with image extension
   def new_product(image_url)
     Product.new(title:    "Osprey Backpack",
-      decription: "75 liters, blue, and awesome",
+      description: "75 liters, blue, and awesome",
       price:    120.00,
       image_url:  image_url)
   end
   test "image_url is image" do
     ok = %w{fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg http://a.b.c/x/y/zfred.gif}
-    bad = %w{ fred.doc dred.gif/more fred.gif.more }
+    bad = %w{ fred.doc fred.gif/more fred.gif.more }
     ok.each do |name|
       assert new_product(name).valid?, "#{name} should be valid"
     end
