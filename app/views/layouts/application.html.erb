@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Depot</title>
+  <title>Gary's Garage</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller.controller_name %>">
-
-<%= yield %>
-
+  <div id="banner">
+    <%= image_tag("fun.jpg") %>
+    <%= @page_title || "Pragmatic Bookshelf" %>
+  </div>
+  <div id="columns">
+    <div id="side">
+      <li><a href="" >Home</a></li>
+      <li><a href="" >About</a></li>
+      <li><a href="" >News</a></li>
+      <li><a href="" >Contact</a></li>
+    </div>
+    <div id="main">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>
